@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Algorithm</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
+  
+  <!-- Bootstrap CSS File  -->
+  <!-- <link href="/public/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+  <link rel="stylesheet" type="text/css" href="/node_modules/wowjs/css/libs/animate.css">
+  
+  <!-- Libraries CSS Files -->
+  <link href="/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/lib/animate/animate.min.css" rel="stylesheet">
+  <link href="/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+
+
+
+  <!--==========================
+  Header
+  ============================-->
+
+  
+
+  <body>
+  <header id="header" style="display: inline-block">
+    <div class="container">
+      <div class="logo float-right">
+          <button *ngIf="exit_flag" type="button" class="btn btn-primary " style="margin-right:930px;" (click)="exit_challenge()">Exit</button>
+
+          <h1 class="text-light"><a href="#intro" class="scrollto"><span>خوارزميات</span></a></h1>
+        </div>
+      </div>
+  </header>
+
+
+  <section id="intro" class="clearfix">
+      <div class="container d-flex h-100">
+        <div class="row justify-content-center align-self-center">
+          <div class="col-md-12 intro-info ">
+              <div *ngIf="!header_flag"> 
+            <div class="row" style="margin-top: -150px;">
+               
+                 
+                    <h3 style="color: #413e66">
+                      <strong>
+                      Learning Algorithms is the first step to be a professional developer.<br>
+                    </strong>
+                
+                    </h3>
+                   
+              </div>
+              <div class="row">
+                  <h3 style="color: #413e66">
+                    <strong>
+                        Join other teams for a challenge, share ideas, <br> and enhance your solving skills!
+                    </strong>
+                  </h3>
+              </div>
+              
+              <div class="row">
+
+                  <h4>Challenge Code: {{code}}</h4> 
+              </div>
+            </div>
+              <div *ngIf="header_flag"> 
+            <h2>Code The Future With <br/> Your Team!</h2>
+            <div>
+                <a href="#start_challenge"><button type="button"  class="btn-get-started scrollto" (click)="start_challenge()">Start Challenge</button></a>
+                <a href="#join_challenge"><button type="button"  class="btn-get-started scrollto" (click)="join_challenge()">Join Challenge</button></a>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  
+<!--==========================
+      Start A Challenge
+============================-->
+
+
+<main id="main">
+    <div *ngIf="start_challenge_flag" id="start_challenge"> 
+  <section id="algo" >
+      <div class="container">
+          <br>
+        <div class="row justify-content-center">
+            <h1>Share The Code With Other Teams: #{{code}}</h1>
+        </div>
+        <br>
+           <div class="row justify-content-center">
+          <label for="username" id="start_Lbl">Username: </label>
+             <input type="text" [(ngModel)]="user" class="form-control col-md-4" id="username" placeholder="Enter username" style="margin-left: 40px; margin-right: 170px" >
+            <input type="text" type="hidden" [(ngModel)]="code" class="form-control" id="class_code" placeholder="Enter Code">
+      </div>
+      <br>
+        <div class="row justify-content-center">
+          <label for="algo"  id="start_Lbl">Add The Algorithm: </label>
+                <textarea id="algorithm" rows="7" cols="74" ></textarea> 
+                <button type="submit" class="btn btn-primary " style="margin: 130px 0px 20px 20px " (click)="begin()">Save</button>  
+          </div>
+              <div class="row justify-content-center " >
+                  <button type="submit" class="btn btn-primary mb-2 col-md-2" style="margin-top: 50px; " (click)="join()">Begin</button>                 
+                </div>
+                <br>     
+              <div class="form-row align-items-center">
+                <div class="col-auto">
+                
+                </div>
+              </div>
+      </div>
+
+  </section>
+</div>
+
+
+<!--==========================
+      Join A Challenge
+============================-->
+
+
+
+<div *ngIf="join_challenge_flag">
+  <section>
+      <div class="container">
+        <div >
+            <h1 style="margin-left: 430px; margin-top: 20px;">Join A Challenge</h1>
+        </div>
+        <br>
+        <div class="row" style="margin-left: 400px;">
+            <label for="username" id="join_Lbl">Username: </label>
+            <input type="text" [(ngModel)]="user" class="form-control" id="username" class="form-control col-md-4"  placeholder="Enter username" style="margin-left: 10px; margin-top: 20px; margin-right: 170px" >
+        </div>
+        <br>
+        <div class="row" style="margin-left: 400px;">
+            <label for="username" id="join_Lbl" >Code: </label>
+           <input type="text" [(ngModel)]="code" class="form-control" id="class_code" class="form-control" id="code" class="form-control col-md-4"  placeholder="Enter code" style="margin-left: 50px; margin-top: 20px; margin-right: 170px" >
+        </div>
+        <br>
+        <div class="row" style="margin-left: 530px;">
+            <button type="button" class="btn btn-primary mb-2 col-md-2" style="margin-top: 40px; margin-bottom: 60px" (click)="join()">Join</button>
+        </div>
+        <br>
+
+      </div>
+  </section>
+  </div>
+
+
+<!--==========================
+      Challenge Dashboard
+============================-->
+
+<div *ngIf="main_challenge_flag">
+
+    <section id = "about">
+     
+
+        <div class="container">
+
+
+        <div class="panel panel-primary" id="algorithmssss">
+          <div class="panel-heading">The Algorithm</div>
+            <div class="panel-body" id="algo_Challenge">  {{algo_Challenge}} </div>
+        </div>
+         
+               
+
+          <h3 style="font-size: 2.75rem;   color: whitesmoke;">Team Board</h3>
+          <div class="row">
+            <div class="col-lg-6 col-md-6" >   
+               
+                <app-editor [id]="user" ></app-editor>
+            </div>
+  
+            <div class="col-lg-5 col-md-6">
+             <div class="row">
+              <div class="col-md-12">
+                  <div class="panel panel-primary">
+                      <div class="panel-heading" id="accordion">
+                          <span class="glyphicon glyphicon-comment"></span> Discussion
+                          <div class="btn-group pull-right">
+                              <a type="button" class="btn btn-default btn-xs" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                  <span class="glyphicon glyphicon-chevron-down"></span>
+                              </a>
+                          </div>
+                      </div>
+                  <div class="panel-collapse collapse" id="collapseOne">
+                      <div class="panel-footer">
+                        
+                          <div *ngFor="let item of messageArray">
+                                   <div class="chat-body clearfix">
+                                      <div class="header">
+                                          <strong class="primary-font">{{item.user}}: </strong>
+                                              {{item.message}}
+                                          <small class="pull-right text-muted">
+                                              <span class="glyphicon glyphicon-time"> </span>{{item.time}}</small>                                    
+                                      </div>
+                                  </div>
+                          </div>
+                          <div class="input-group">
+                              <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." [(ngModel)]="messageText" />
+                              <span class="input-group-btn">
+                                  <button class="btn btn-warning btn-sm" id="btn-chat" (click)="sendMessage()">Send</button>
+                              </span>
+                          </div>
+                      </div>
+                  </div>
+                  </div>
+              </div>
+          </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+</div>
+
+       
+
+<!--==========================
+      All Joined Teams Names
+============================-->
+
+<div *ngIf="windows_flag">
+    <section id="services" class="section-bg">
+        <div class="container">
+          <header class="section-header">
+            <h3>Teams Dashbaord</h3>
+            <p>Click on Team's Name to View Their Progress</p>
+          </header>
+          <div class="row">
+            <ng-container *ngFor="let item of usersArray">
+                <div  *ngIf="item.username != user">
+            <div class="col-md-12 col-lg-12 wow bounceInUp" data-wow-duration="1.4s">
+              <div class="box" (click)="ViewTeam(item.username)">
+                <div class="icon" id="{{item.username}}"  style="background: #fceef3;"><i id= "r{{item.username}}" class="ion-ios-analytics-outline" value="1" style="color: #234418;" ></i></div>
+                <h4 class="title">{{item.username}}</h4>
+                  </div>
+              </div>
+            </div>
+            </ng-container>
+
+          </div> 
+        </div>
+    </section>
+
+  </div>
+  <!--==========================
+      One Team Board
+  ============================-->
+
+    <section *ngIf="view_team">
+          <app-view [answer]="answer" [team_name]="team_name"></app-view>
+    </section>
+  
+    
+  <!--==========================
+    Footer
+  ============================-->
+    <footer id="footer" class="section-bg">
+      <div class="container">
+        <div class="copyright">
+          &copy; Copyright <strong>خوارزميات</strong>. All Rights Reserved
+        </div>
+        <div class="credits"> 
+        </div>
+      </div>
+    </footer>
+  
+  
+
+  <div id="preloader"></div>
+
+  <!-- JavaScript Libraries -->
+  <!-- <script src="/lib/jquery/jquery.min.js"></script>
+  <script src="/lib/jquery/jquery-migrate.min.js"></script>
+  <script src="/lib/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+  <script src="/lib/easing/easing.min.js"></script> 
+  <!-- <script src="/lib/mobile-nav/mobile-nav.js"></script> -->
+  <!-- <script src="/lib/wow/wow.min.js"></script> -->
+  <script src="/lib/waypoints/waypoints.min.js"></script>
+  <!-- <script src="/lib/counterup/counterup.min.js"></script> -->
+  <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="/lib/isotope/isotope.pkgd.min.js"></script>
+  <script src="/lib/lightbox/js/lightbox.min.js"></script>
+  <!-- Contact Form JavaScript File -->
+  <script src="contactform/contactform.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <!-- <script src="js/main.js"></script> -->
+
+
+
+      
+<router-outlet></router-outlet>
+
